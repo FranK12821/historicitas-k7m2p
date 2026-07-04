@@ -24,7 +24,7 @@
       cursor: pointer;
     }
     #bookContainer {
-      display: none;
+      visibility: hidden;
       position: fixed;
       top: 50%;
       left: 50%;
@@ -86,11 +86,13 @@
         el.style.backgroundImage = `url(${d.portraitUrl})`;
         el.style.borderColor = d.borderColor;
         el.addEventListener('click', () => {
-        document.getElementById('bookPlace').textContent = d.place;
-        document.getElementById('bookDate').textContent = d.date;
-        document.getElementById('bookDescription').textContent = d.description;
-        document.getElementById('bookContainer').style.display = 'block';
-        pageFlip.turnToPage(0);
+         document.getElementById('bookPlace').textContent = d.place;
+         document.getElementById('bookDate').textContent = d.date;
+         document.getElementById('bookDescription').textContent = d.description;
+         pageFlip.updateFromHTML(document.querySelectorAll('.page'));
+         document.getElementById('bookContainer').style.visibility = 'visible';
+         document.getElementById('bookContainer').style.pointerEvents = 'auto';
+         pageFlip.turnToPage(0);
       });          
         return el;
       });
@@ -101,8 +103,9 @@
   });
   pageFlip.loadFromHTML(document.querySelectorAll('.page'));
   
-  document.getElementById('closeBook').addEventListener('click', () => {
-    document.getElementById('bookContainer').style.display = 'none';
+   document.getElementById('closeBook').addEventListener('click', () => {
+    document.getElementById('bookContainer').style.visibility = 'hidden';
+    document.getElementById('bookContainer').style.pointerEvents = 'none';
   });
 </script>
 
