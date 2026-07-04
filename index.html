@@ -59,14 +59,20 @@
 <div id="bookContainer">
   <button id="closeBook">✕</button>
   <div class="page" data-density="hard">
-    <h2>Cover</h2>
+    <h2>  id="bookName"></h2>
   </div>
   <div class="page">
     <p id="bookPlace"></p>
     <p id="bookDate"></p>
   </div>
   <div class="page">
-    <p id="bookDescription"></p>
+    <p id="bookDescription1"></p>
+  </div>
+  <div class="page">
+    <p id="bookDescription2"></p>
+  </div>
+  <div class="page">
+    <p id="bookSources"></p>
   </div>
 </div>
 
@@ -87,9 +93,12 @@
         el.style.borderColor = d.borderColor;
         el.style['pointer-events'] = 'auto';
         el.addEventListener('click', () => {
+         document.getElementById('bookName').textContent = d.name;
          document.getElementById('bookPlace').textContent = d.place;
          document.getElementById('bookDate').textContent = d.date;
-         document.getElementById('bookDescription').textContent = d.description;
+         document.getElementById('bookDescription1').textContent = d.description1;
+         document.getElementById('bookDescription2').textContent = d.description2;
+         document.getElementById('bookSources').textContent = d.sources;
          pageFlip.updateFromHtml(document.querySelectorAll('.page'));
          document.getElementById('bookContainer').style.visibility = 'visible';
          document.getElementById('bookContainer').style.pointerEvents = 'auto';
