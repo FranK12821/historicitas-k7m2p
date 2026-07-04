@@ -7,5 +7,19 @@
   const myGlobe = new Globe(myDOMElement)
     .globeImageUrl('Img/Globe Image_07_2025.png')
     .backgroundImageUrl('Img/Background Globe Image_07_2025.png')
-    .pointsData(anecdotePoints);     
+    .pointsData(anecdotePoints)
+    .htmlElementsData(data)
+      .htmlElement(d => {
+        const el = document.createElement('div');
+        el.className = 'portrait-pin';
+        el.style.backgroundImage = `url(${d.portraitUrl})`;
+        el.style.borderColor = d.borderColor;
+
+        el.addEventListener('click', () => {
+          
+          console.log('Clicked:', d.name);
+        });
+
+        return el;
+      });
 </script>
