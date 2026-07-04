@@ -85,6 +85,7 @@
         el.className = 'portrait-pin';
         el.style.backgroundImage = `url(${d.portraitUrl})`;
         el.style.borderColor = d.borderColor;
+        el.style['pointer-events'] = 'auto';
         el.addEventListener('click', () => {
          document.getElementById('bookPlace').textContent = d.place;
          document.getElementById('bookDate').textContent = d.date;
