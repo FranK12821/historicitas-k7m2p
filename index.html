@@ -24,6 +24,7 @@
       cursor: pointer;
     }
     #bookContainer {
+      display: none;
       position: fixed;
       top: 50%;
       left: 50%;
@@ -34,6 +35,20 @@
       background: #f4ecd8;
       padding: 20px;
       box-sizing: border-box;
+      }
+    #closeBook {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      z-index: 20;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      background: #8B0000;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -42,6 +57,7 @@
 <div id="globeViz"></div>
 
 <div id="bookContainer" style="display: none;">
+  <button id="closeBook">✕</button>
   <div class="page" data-density="hard">
     <h2>Cover</h2>
   </div>
@@ -69,20 +85,25 @@
         el.className = 'portrait-pin';
         el.style.backgroundImage = `url(${d.portraitUrl})`;
         el.style.borderColor = d.borderColor;
-
         el.addEventListener('click', () => {
-          
-          console.log('Clicked:', d.name);
-        });
-
+        document.getElementById('bookPlace').textContent = d.place;
+        document.getElementById('bookDate').textContent = d.date;
+        document.getElementById('bookDescription').textContent = d.description;
+        document.getElementById('bookContainer').style.display = 'block';
+        pageFlip.turnToPage(0);
+      });          
         return el;
       });
   
    const pageFlip = new St.PageFlip(document.getElementById('bookContainer'), {
-    width: 400,
-    height: 500
+    width: 250,
+    height: 320
   });
   pageFlip.loadFromHTML(document.querySelectorAll('.page'));
+  
+  document.getElementById('closeBook').addEventListener('click', () => {
+    document.getElementById('bookContainer').style.display = 'none';
+  });
 </script>
 
 </body>
