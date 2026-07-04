@@ -23,13 +23,40 @@
       background-position: center;
       cursor: pointer;
     }
+    #bookContainer {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+    .page {
+      background: #f4ecd8;
+      padding: 20px;
+      box-sizing: border-box;
+    }
   </style>
 </head>
 <body>
   
 <div id="globeViz"></div>
+
+<div id="bookContainer" style="display: none;">
+  <div class="page" data-density="hard">
+    <h2>Cover</h2>
+  </div>
+  <div class="page">
+    <p id="bookPlace"></p>
+    <p id="bookDate"></p>
+  </div>
+  <div class="page">
+    <p id="bookDescription"></p>
+  </div>
+</div>
+
 <script src="data.js"></script>
 <script src="//cdn.jsdelivr.net/npm/globe.gl"></script>
+<script src="{path/to/scripts}/page-flip.browser.js"></script>
 <script>
   const myDOMElement = document.getElementById('globeViz');
  
@@ -50,6 +77,12 @@
 
         return el;
       });
+  
+   const pageFlip = new St.PageFlip(document.getElementById('bookContainer'), {
+    width: 400,
+    height: 500
+  });
+  pageFlip.loadFromHTML(document.querySelectorAll('.page'));
 </script>
 
 </body>
