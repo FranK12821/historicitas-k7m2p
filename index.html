@@ -91,7 +91,7 @@
          document.getElementById('bookPlace').textContent = d.place;
          document.getElementById('bookDate').textContent = d.date;
          document.getElementById('bookDescription').textContent = d.description;
-         pageFlip.updateFromHTML(document.querySelectorAll('.page'));
+         pageFlip.updateFromHtml(document.querySelectorAll('.page'));
          document.getElementById('bookContainer').style.visibility = 'visible';
          document.getElementById('bookContainer').style.pointerEvents = 'auto';
          pageFlip.turnToPage(0);
@@ -106,8 +106,6 @@
   pageFlip.loadFromHTML(document.querySelectorAll('.page'));
   
    document.getElementById('closeBook').addEventListener('click', () => {
-  alert('clicked!');
-  document.getElementById('bookPlace').textContent = d.place;
     document.getElementById('bookContainer').style.visibility = 'hidden';
     document.getElementById('bookContainer').style.pointerEvents = 'none';
   });
