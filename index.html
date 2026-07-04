@@ -56,7 +56,7 @@
   
 <div id="globeViz"></div>
 
-<div id="bookContainer" style="display: none;">
+<div id="bookContainer">
   <button id="closeBook">✕</button>
   <div class="page" data-density="hard">
     <h2>Cover</h2>
@@ -87,7 +87,6 @@
         el.style.borderColor = d.borderColor;
         el.style['pointer-events'] = 'auto';
         el.addEventListener('click', () => {
-         console.log('pin clicked!');
          document.getElementById('bookPlace').textContent = d.place;
          document.getElementById('bookDate').textContent = d.date;
          document.getElementById('bookDescription').textContent = d.description;
