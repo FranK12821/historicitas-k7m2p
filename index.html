@@ -1,10 +1,10 @@
 <div id="globeViz"></div>
-
+<script src="data.js"></script>
 <script src="//cdn.jsdelivr.net/npm/globe.gl"></script>
 <script>
   const myDOMElement = document.getElementById('globeViz');
 
   const myGlobe = new Globe(myDOMElement)
-    .globeImageUrl(null)   // start with no texture, add later
-    .pointsData([]);       // start empty, add your data later
+    .globeImageUrl(null)   
+    .pointsData(data);     
 </script>
