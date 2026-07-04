@@ -1,3 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>El Globo de Historicitas</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #globeViz {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .portrait-pin {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 3px solid; /* color is set dynamically per point in JS */
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  
 <div id="globeViz"></div>
 <script src="data.js"></script>
 <script src="//cdn.jsdelivr.net/npm/globe.gl"></script>
